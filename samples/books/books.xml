@@ -1,0 +1,14 @@
+<books>
+    <book id="1">
+        <title>Go Programming</title>
+        <author>John Doe</author>
+        <price>29.99</price>
+        <available>true</available>
+    </book>
+    <book id="2">
+        <title>XML Processing</title>
+        <author>Jane Smith</author>
+        <price>34.99</price>
+        <available>false</available>
+    </book>
+</books>

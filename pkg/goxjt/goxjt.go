@@ -81,7 +81,8 @@ func processProperty(prop SchemaProperty, parentContext *xmlquery.Node) (interfa
 				return nil, fmt.Errorf("xpath error for object %q: %w", prop.XPath, err)
 			}
 			if node == nil {
-				return nil, fmt.Errorf("xpath for object %q returned no node", prop.XPath)
+				// For objects with XPath that don't match, return nil (optional property)
+				return nil, nil
 			}
 			currentContext = node
 		}
@@ -98,7 +99,10 @@ func processProperty(prop SchemaProperty, parentContext *xmlquery.Node) (interfa
 				// Add context to the error
 				return nil, fmt.Errorf("error processing property %q: %w", key, err)
 			}
-			resultMap[key] = val
+			// Only add the property if it's not nil (handles optional properties)
+			if val != nil {
+				resultMap[key] = val
+			}
 		}
 		return resultMap, nil
 
@@ -143,7 +147,8 @@ func processProperty(prop SchemaProperty, parentContext *xmlquery.Node) (interfa
 				return nil, fmt.Errorf("xpath error for primitive %q: %w", prop.XPath, err)
 			}
 			if node == nil {
-				return nil, fmt.Errorf("xpath for primitive %q returned no node", prop.XPath)
+				// For primitives with XPath that don't match, return nil (optional property)
+				return nil, nil
 			}
 			xmlVal = node.InnerText()
 		}

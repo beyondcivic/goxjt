@@ -1,0 +1,18 @@
+{
+  "books": [
+    {
+      "author": "John Doe",
+      "available": true,
+      "id": "1",
+      "price": 29.99,
+      "title": "Go Programming"
+    },
+    {
+      "author": "Jane Smith",
+      "available": false,
+      "id": "2",
+      "price": 34.99,
+      "title": "XML Processing"
+    }
+  ]
+}

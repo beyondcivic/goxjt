@@ -31,3 +31,4 @@ go.work.sum
 # .idea/
 # .vscode/
 bin/goxjt
+samples/traffic_situations/

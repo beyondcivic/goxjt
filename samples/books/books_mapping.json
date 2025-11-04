@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "books": {
+            "type": "array",
+            "xpath": "//book",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "xpath": "@id"
+                    },
+                    "title": {
+                        "type": "string",
+                        "xpath": "title"
+                    },
+                    "author": {
+                        "type": "string",
+                        "xpath": "author"
+                    },
+                    "price": {
+                        "type": "float",
+                        "xpath": "price"
+                    },
+                    "available": {
+                        "type": "bool",
+                        "xpath": "available"
+                    }
+                }
+            }
+        }
+    }
+}
